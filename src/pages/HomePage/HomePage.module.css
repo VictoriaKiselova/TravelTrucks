@@ -1,0 +1,88 @@
+.hero {
+  padding: 300px 20px 370px 20px;
+  background-image: url("../../Image/hero-travel.jpg");
+  background-repeat: no-repeat;
+/* background-position: center center; */
+}
+.titleHero {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 48px;
+  text-align: left;
+  color: #f7f7f7;
+  margin-bottom: 16px;
+}
+.herosubTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  color: #f7f7f7;
+  margin-bottom: 40px;
+}
+.linkCatalog {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #ffffff;
+  padding: 16px 46px;
+  text-decoration: none;
+  background-color: #e44848;
+  border-radius: 30px;
+}
+.linkCatalog:hover {
+  background-color: #d84343;
+  color: #ffffff;
+}
+
+@media screen and (min-resolution: 192dpi) and (min-width: 320px),
+  screen and (min-resolution: 2dppx) and (min-width: 320px),
+  screen and (min-device-pixel-ratio: 2) {
+  .hero {
+    background-image: url("../../Image/hero-travel2x.jpg");
+  }
+}
+
+@media screen and (min-width: 768px) {
+    .hero {
+        padding: 260px 805px 260px 64px;
+        background-image: url("../../Image/hero-travel.jpg");
+        background-repeat: no-repeat;
+        background-size:  100% 100%;
+      }
+      .titleHero {
+        font-size: 48px;
+        font-weight: 600;
+        text-align: left;
+        color: #f7f7f7;
+        margin-bottom: 16px;
+      }
+      .herosubTitle {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        text-align: left;
+        color: #f7f7f7;
+        margin-bottom: 40px;
+      }
+      .linkCatalog {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: -0.005em;
+        text-align: left;
+        color: #ffffff;
+        padding: 16px 46px;
+        text-decoration: none;
+        background-color: #e44848;
+        border-radius: 30px;
+      }
+      .linkCatalog:hover {
+        background-color: #d84343;
+        color: #ffffff;
+      }
+}
+
+

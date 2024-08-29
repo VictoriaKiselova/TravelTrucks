@@ -1,0 +1,19 @@
+.logo {
+  position: absolute;
+  left: 12px;
+  color: #101828;
+  margin: 0;
+}
+.logoTrucks {
+  color: #475467;
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    position: absolute;
+    left: 64px;
+    color: #101828;
+  }
+  .logoTrucks {
+    color: #475467;
+  }
+}
