@@ -8,6 +8,8 @@ export default function Filters() {
     <div>
       <Location />
       <p className={css.filters}>Filters</p>
+
+      <div className={css.filterContainer}>
       <h3 className={css.titleEquipment}>Vehicle equipment</h3>
       <hr className={css.line} />
       <ul className={css.equipmentList}>
@@ -64,7 +66,7 @@ export default function Filters() {
           </svg>
           <p className={css.equipmentFilter}>Alcove</p>
         </li>
-      </ul>
+      </ul></div>
       <Link className={css.linkCatalog} to="/catalog">
         Search
       </Link>
