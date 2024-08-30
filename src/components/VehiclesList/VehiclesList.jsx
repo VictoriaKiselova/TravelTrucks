@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { selectorVehicles } from "../../redux/vehicles/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchVehicles } from "../../redux/vehicles/operations";
+import Characteristics from "../Characteristics/Characteristics.jsx";
 import css from "./VehiclesList.module.css";
 
 export default function VehiclesList() {
@@ -40,12 +41,37 @@ export default function VehiclesList() {
                   </svg>
                 </div>
               </div>
-
-              <svg className={css.icon}>
-                <use href={sprite + "#icon-star"} />
-              </svg>
-              <p></p>
-              <Link className={css.linkCatalog} to="/catalog">
+              <div className={css.ratingWrapper}>
+                <svg className={css.iconStar}>
+                  <use href={sprite + "#icon-star"} />
+                </svg>
+                <span className={css.rating}>
+                  {elem.rating}({elem.reviews.length} Reviews)
+                </span>
+                <span className={css.rating}>
+                  <svg className={css.iconLocation}>
+                    <use href={sprite + "#icon-Map"} />
+                  </svg>
+                  {elem.location}
+                </span>
+              </div>
+              <p className={css.description}>{elem.description}</p>
+              <Characteristics
+                type={{
+                  transmission: elem.transmission,
+                  engine: elem.engine,
+                  AC: elem.AC,
+                  bathroom: elem.bathroom,
+                  kitchen: elem.kitchen,
+                  TV: elem.TV,
+                  radio: elem.radio,
+                  refrigerator: elem.refrigerator,
+                  microwave: elem.microwave,
+                  gas: elem.gas,
+                  water: elem.water,
+                }}
+              />
+              <Link className={css.linkCatalog} to="/campers/:id">
                 Show more
               </Link>
             </div>
