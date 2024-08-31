@@ -14,6 +14,20 @@ export const fetchVehicles = createAsyncThunk(
     }
   }
 );
+
+
+export const fetchDetailsById = createAsyncThunk(
+    "vehicles/details",
+    async (id, thunkAPI) => {
+      try {
+        const response = await axios.get(`/campers/${id}`);
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+      }
+    }
+  );
+
 // export const addContact = createAsyncThunk(
 //   "contacts/addContact",
 //   async (values, thunkAPI) => {
