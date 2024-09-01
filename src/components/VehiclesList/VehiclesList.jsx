@@ -1,4 +1,3 @@
-import sprite from "../../Image/Icons.svg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { selectorVehicles } from "../../redux/vehicles/selectors";
@@ -25,12 +24,12 @@ export default function VehiclesList() {
       : [details];
 
   return (
-    <div >
+    <div>
       {listToRender.map(elem => (
         <ul key={elem.id} className={css.vehicles}>
           <li className={css.vehiclesItem}>
             <div>
-              {vehicles.length > 0 &&(
+              {vehicles.length > 0 && (
                 <img
                   src={
                     elem.gallery && elem.gallery.length > 0
@@ -44,13 +43,15 @@ export default function VehiclesList() {
             </div>
             <div>
               <HeadVehiclesList elem={elem} />
-              {vehicles.length > 0&&(
+              {vehicles.length > 0 && (
                 <p className={css.description}>{elem.description}</p>
               )}
-             { vehicles.length > 0&& <Characteristics elem={elem} />}
-              {vehicles.length > 0&&<Link className={css.linkCatalog} to={`/catalog/${elem.id}`}>
-                Show more
-              </Link>}
+              {vehicles.length > 0 && <Characteristics elem={elem} />}
+              {vehicles.length > 0 && (
+                <Link className={css.linkCatalog} to={`/catalog/${elem.id}`}>
+                  Show more
+                </Link>
+              )}
             </div>
           </li>
         </ul>

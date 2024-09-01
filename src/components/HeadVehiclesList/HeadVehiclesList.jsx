@@ -1,24 +1,26 @@
 import sprite from "../../Image/Icons.svg";
 import { selectorDetails } from "../../redux/vehicles/selectors.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectorVehicles } from "../../redux/vehicles/selectors";
 import css from "./HeadVehiclesList.module.css";
 
 export default function HeadVehiclesList({ elem }) {
   const { name, price, reviews, rating, location } = elem;
-  const details = useSelector(selectorDetails);
   const vehicles = useSelector(selectorVehicles);
   const numberOfReviews = Array.isArray(reviews) ? reviews.length : 0;
-    return (
+
+  return (
     <div className={css.vehiclesDescription}>
       <div className={css.listItem}>
         <h2 className={css.vehiclesName}>{name}</h2>
-       {vehicles.length > 0 && <div className={css.priceBox}>
-          <h2 className={css.vehiclesPrice}>€{price}.00</h2>
-          <svg className={css.iconHeart}>
-            <use href={sprite + "#icon-heart"} />
-          </svg>
-        </div>}
+        {vehicles.length > 0 && (
+          <div className={css.priceBox}>
+            <h2 className={css.vehiclesPrice}>€{price},00</h2>
+            <svg className={css.iconHeart}>
+              <use href={sprite + "#icon-heart"} />
+            </svg>
+          </div>
+        )}
       </div>
       <div className={css.ratingWrapper}>
         <svg className={css.iconStar}>

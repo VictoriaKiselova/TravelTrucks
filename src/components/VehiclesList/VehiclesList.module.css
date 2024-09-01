@@ -2,7 +2,8 @@
   padding: 24px;
   display: flex;
   gap: 24px;
-  list-style-type: none;    background-color: #ffffff;
+  list-style-type: none;
+  background-color: #ffffff;
   border: 1px solid #dadde1;
   border-radius: 20px;
   margin-bottom: 32px;
@@ -13,90 +14,31 @@
   border-radius: 10px;
   object-fit: cover;
 }
-/* .vehiclesDescription {
-  width: 524px;
-  margin-bottom: 8px;
-}
-.listItem {
-  display: flex;
-  justify-content: space-between;
-}
-.vehiclesName {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  color: #101828;
-}
-.priceBox {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.vehiclesPrice {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-  text-align: left;
-  letter-spacing: 0.01em;
-  color: #101828;
-}
-.iconHeart {
-  width: 26px;
-  height: 24px;
-  color: #101828;
-}
-.ratingWrapper {
-  margin-bottom: 24px;
-}
-.iconStar {
-  width: 16px;
-  height: 16px;
-  fill: #ffc531;
-  margin-right: 4px;
-}
-.rating {
+.description {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.01em;
   text-align: left;
-  color: #101828;
-  margin-right: 16px;
+  color: #475467;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 24px;
 }
-.iconLocation {
-  width: 16px;
-  height: 16px;
-  stroke: #101828;
-  margin-right: 4px;
-}
- */
- .description {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: left;
-    color: #475467;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    margin-bottom: 24px;
-  }
 .linkCatalog {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.005em;
-    text-align: left;
-    color: #ffffff;
-    padding: 16px 46px;
-    text-decoration: none;
-    background-color: #e44848;
-    border-radius: 30px;
-  }
-  .linkCatalog:hover {
-    background-color: #d84343;
-    color: #ffffff;
-  }
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #ffffff;
+  padding: 16px 46px;
+  text-decoration: none;
+  background-color: #e44848;
+  border-radius: 30px;
+}
+.linkCatalog:hover {
+  background-color: #d84343;
+  color: #ffffff;
+}

@@ -11,6 +11,7 @@ const vehiclesSlice = createSlice({
   initialState: {
     items: [],
     details: [],
+    // activeLink:
     // transmission: "",
     // engine: "",
     // AC: false,
@@ -58,9 +59,9 @@ const vehiclesSlice = createSlice({
       })
       .addCase(fetchDetailsById.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null; state.items = [];
+        state.error = null;
+        state.items = [];
         state.details = action.payload;
-       
       })
       .addCase(fetchDetailsById.rejected, state => {
         state.error = true;

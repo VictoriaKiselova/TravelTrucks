@@ -1,0 +1,28 @@
+.detailsTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  letter-spacing: 0.01em;
+  color: #101828;
+  margin-bottom: 24px;
+}
+.lined {
+  margin-bottom: 24px;
+}
+.detailsList:not(:last-child) {
+  margin-bottom: 16px;
+}
+.detailsItemVehicle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.itemValue {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #101828;
+}

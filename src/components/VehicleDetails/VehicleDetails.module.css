@@ -1,0 +1,10 @@
+.detailsBox{
+    width: 631px;
+    padding: 44px 52px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background-color: 
+    #F7F7F7;
+}
