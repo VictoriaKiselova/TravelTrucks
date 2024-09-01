@@ -49,7 +49,17 @@
   justify-content: center;
   gap: 8px;
 }
-.equipmentFilterItem:active {
+.equipmentFilterItemActive {
+  width: 112px;
+  height: 96px;
+  list-style-type: none;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: 1px solid #e44848;
 }
 .icon {
@@ -76,6 +86,7 @@
   text-decoration: none;
   background-color: #e44848;
   border-radius: 30px;
+  border: none;
 }
 .linkCatalog:hover {
   background-color: #d84343;

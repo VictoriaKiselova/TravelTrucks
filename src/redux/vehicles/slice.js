@@ -1,53 +1,55 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  fetchVehicles,
-  fetchDetailsById,
-  //   deleteContact,
-  //   updateContact,
-} from "./operations.js";
+import { fetchVehicles, fetchDetailsById } from "./operations.js";
 
 const vehiclesSlice = createSlice({
   name: "vehicles",
   initialState: {
     items: [],
     details: [],
-    // activeLink:
-    // transmission: "",
-    // engine: "",
-    // AC: false,
-    // bathroom: false,
-    // kitchen: false,
-    // TV: false,
-    // radio: false,
-    // refrigerator: false,
-    // microwave: false,
-    // gas: false,
-    // water: false,
-    // loading: false,
-    // error: null,
+    loadMore: true,
+    favorites: [],
+    page: 1,
+    limit: 4,
+    loading: false,
+    error: null,
+  },
+  reducers: {
+    clearItems: state => {
+      state.items = [];
+    },
+    addFavorite: (state, action) => {
+      const id = action.payload;
+      if (!state.favorites.includes(id)) {
+        state.favorites.push(id);
+        console.log(state.favorites);
+      }
+    },
+    removeFavorite: (state, action) => {
+      const id = action.payload;
+      state.favorites = state.favorites.filter(favId => favId !== id);
+    },
+    nextPage: state => {
+      state.page = state.page + 1;
+    },
   },
   extraReducers: builder =>
     builder
       .addCase(fetchVehicles.pending, state => {
         state.error = null;
         state.loading = true;
+        state.filterItems = [];
       })
       .addCase(fetchVehicles.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.details = [];
-        state.items = action.payload;
-        (state.transmission = action.payload[0].transmission),
-          (state.engine = action.payload[0].engine),
-          (state.AC = action.payload[0].AC),
-          (state.bathroom = action.payload[0].bathroom),
-          (state.kitchen = action.payload[0].kitchen),
-          (state.TV = action.payload[0].TV),
-          (state.radio = action.payload[0].radio),
-          (state.refrigerator = action.payload[0].refrigerator),
-          (state.microwave = action.payload[0].microwave),
-          (state.gas = action.payload[0].gas),
-          (state.water = action.payload[0].water);
+        const newItems = action.payload.items;
+        const existingIds = new Set(state.items.map(item => item.id));
+        const filteredNewItems = newItems.filter(
+          item => !existingIds.has(item.id)
+        );
+        state.items = [...state.items, ...filteredNewItems];
+        state.loadMore = action.payload.items.length >= 4;
       })
       .addCase(fetchVehicles.rejected, state => {
         state.error = true;
@@ -56,6 +58,7 @@ const vehiclesSlice = createSlice({
       .addCase(fetchDetailsById.pending, state => {
         state.error = null;
         state.loading = true;
+        state.page = 1;
       })
       .addCase(fetchDetailsById.fulfilled, (state, action) => {
         state.loading = false;
@@ -68,5 +71,6 @@ const vehiclesSlice = createSlice({
         state.loading = false;
       }),
 });
-
+export const { clearItems, addFavorite, removeFavorite, nextPage } =
+  vehiclesSlice.actions;
 export default vehiclesSlice.reducer;

@@ -1,8 +1,14 @@
+import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { selectorVehicles } from "../../redux/vehicles/selectors";
+import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectorDetails } from "../../redux/vehicles/selectors.js";
+import { nextPage } from "../../redux/vehicles/slice.js";
+import {
+  selectorVehicles,
+  selectorLoadMore,
+  selectorPage,
+  selectorLimit,
+} from "../../redux/vehicles/selectors.js";
 import { fetchVehicles } from "../../redux/vehicles/operations";
 import Characteristics from "../Characteristics/Characteristics.jsx";
 import HeadVehiclesList from "../HeadVehiclesList/HeadVehiclesList.jsx";
@@ -10,32 +16,45 @@ import css from "./VehiclesList.module.css";
 
 export default function VehiclesList() {
   const vehicles = useSelector(selectorVehicles);
-  const details = useSelector(selectorDetails);
+  const loadMore = useSelector(selectorLoadMore);
+  const page = useSelector(selectorPage);
+  const limit = useSelector(selectorLimit);
   const dispatch = useDispatch();
+  const filters = useSelector(state => state.filters);
+  const { filterItems } = useSelector(state => state.filters);
+
+  const prevFiltersRef = useRef(filters);
 
   useEffect(() => {
-    dispatch(fetchVehicles());
-  }, [dispatch]);
-  const listToRender =
-    vehicles.length > 0
-      ? vehicles
-      : Array.isArray(details)
-      ? details
-      : [details];
+    prevFiltersRef.current = filters;
+  }, [filters]);
+
+  useEffect(() => {
+    const fetchData = () => {
+      dispatch(fetchVehicles({ page, limit }));
+    };
+
+    fetchData();
+  }, [dispatch, page, limit]);
+
+  const loadMorePage = () => {
+    dispatch(nextPage());
+  };
+
+  const listElem =
+    filterItems && filterItems.length > 0 ? filterItems : vehicles;
 
   return (
     <div>
-      {listToRender.map(elem => (
-        <ul key={elem.id} className={css.vehicles}>
-          <li className={css.vehiclesItem}>
+      {listElem.length === 0 ? (
+        <p>No vehicles available</p>
+      ) : (
+        listElem.map(elem => (
+          <div key={nanoid()} className={css.vehiclesItem}>
             <div>
-              {vehicles.length > 0 && (
+              {elem.gallery && elem.gallery.length > 0 && (
                 <img
-                  src={
-                    elem.gallery && elem.gallery.length > 0
-                      ? elem.gallery[0].thumb
-                      : ""
-                  }
+                  src={elem.gallery[0].thumb || ""}
                   alt={elem.name}
                   className={css.imageVehicles}
                 />
@@ -43,19 +62,23 @@ export default function VehiclesList() {
             </div>
             <div>
               <HeadVehiclesList elem={elem} />
-              {vehicles.length > 0 && (
-                <p className={css.description}>{elem.description}</p>
-              )}
-              {vehicles.length > 0 && <Characteristics elem={elem} />}
-              {vehicles.length > 0 && (
-                <Link className={css.linkCatalog} to={`/catalog/${elem.id}`}>
-                  Show more
-                </Link>
-              )}
+              <p className={css.description}>{elem.description}</p>
+              <Characteristics elem={elem} />
+              <Link className={css.linkCatalog} to={`/catalog/${elem.id}`}>
+                Show more
+              </Link>
             </div>
-          </li>
-        </ul>
-      ))}
+          </div>
+        ))
+      )}
+      {loadMore && listElem.length > 0 && (
+        <button
+          type="button"
+          className={css.buttonLoadMore}
+          onClick={loadMorePage}>
+          Load more
+        </button>
+      )}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import vehiclesReducer from "./vehicles/slice";
+import vehiclesReducer from "./vehicles/slice.js";
+import filtersReducer from "./filters/slice.js";
 import {
   persistStore,
   persistReducer,
@@ -15,17 +16,27 @@ import storage from "redux-persist/lib/storage";
 const persistConfigVehiclesss = {
   key: "vehicles",
   storage,
-  whitelist: ["vehicles"],
+  whitelist: ["favorites"],
 };
+
+// const persistConfigFilters = {
+//   key: "filters",
+//   storage,
+// };
 
 const pVehiclesReducer = persistReducer(
   persistConfigVehiclesss,
   vehiclesReducer
 );
+// const pFiltersReducer = persistReducer(
+//   persistConfigFilters,
+//   filtersReducer
+// );
 
 export const store = configureStore({
   reducer: {
     vehicles: pVehiclesReducer,
+    filters: filtersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

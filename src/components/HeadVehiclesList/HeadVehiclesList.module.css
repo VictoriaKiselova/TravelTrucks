@@ -65,3 +65,15 @@
   color: #101828;
   margin-top: -16px;
 }
+.favouriteButton {
+  border: none;
+  background-color: transparent;
+}
+.favouriteButton:hover {
+  fill: #e44848;
+}
+.favourite {
+  fill: #e44848;
+  border: none;
+  background-color: transparent;
+}

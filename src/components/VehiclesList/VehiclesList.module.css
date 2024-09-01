@@ -1,3 +1,6 @@
+.vehicles {
+  margin-bottom: 40px;
+}
 .vehiclesItem {
   padding: 24px;
   display: flex;
@@ -6,6 +9,8 @@
   background-color: #ffffff;
   border: 1px solid #dadde1;
   border-radius: 20px;
+}
+.vehiclesItem:not(:last-child) {
   margin-bottom: 32px;
 }
 .imageVehicles {
@@ -41,4 +46,20 @@
 .linkCatalog:hover {
   background-color: #d84343;
   color: #ffffff;
+}
+.buttonLoadMore {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  color: #101828;
+  background-color: transparent;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #dadde1;
+  border-radius: 200px;
+}
+.buttonLoadMore:hover {
+  border: 1px solid #d84343;
 }
