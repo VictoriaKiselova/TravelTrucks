@@ -56,7 +56,7 @@ export default function HeadVehiclesList({ elem }) {
           {location}
         </span>
       </div>
-      <h2 className={css.vehiclesPriceDetails}>€{price}.00</h2>
+      <h2 className={css.vehiclesPriceDetails}>€{price},00</h2>
     </div>
   );
 }

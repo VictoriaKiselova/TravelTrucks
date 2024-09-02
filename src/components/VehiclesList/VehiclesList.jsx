@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { nextPage } from "../../redux/vehicles/slice.js";
 import {
@@ -9,6 +9,7 @@ import {
   selectorPage,
   selectorLimit,
 } from "../../redux/vehicles/selectors.js";
+import { selectorFilterItems } from "../../redux/filters/selectors.js";
 import { fetchVehicles } from "../../redux/vehicles/operations";
 import Characteristics from "../Characteristics/Characteristics.jsx";
 import HeadVehiclesList from "../HeadVehiclesList/HeadVehiclesList.jsx";
@@ -20,14 +21,7 @@ export default function VehiclesList() {
   const page = useSelector(selectorPage);
   const limit = useSelector(selectorLimit);
   const dispatch = useDispatch();
-  const filters = useSelector(state => state.filters);
-  const { filterItems } = useSelector(state => state.filters);
-
-  const prevFiltersRef = useRef(filters);
-
-  useEffect(() => {
-    prevFiltersRef.current = filters;
-  }, [filters]);
+  const filterItems = useSelector(selectorFilterItems);
 
   useEffect(() => {
     const fetchData = () => {

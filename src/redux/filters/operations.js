@@ -8,7 +8,6 @@ export const fetchFilterValue = createAsyncThunk(
   async ({ page, limit, filterParameters }, { rejectWithValue }) => {
     try {
       const { loadMore, ...cleanFilterParameters } = filterParameters;
-      console.log(...cleanFilterParameters);
       const response = await axios.get("/campers", {
         params: {
           page,
@@ -16,7 +15,6 @@ export const fetchFilterValue = createAsyncThunk(
           ...cleanFilterParameters,
         },
       });
-
       return response.data;
     } catch (error) {
       return rejectWithValue({
