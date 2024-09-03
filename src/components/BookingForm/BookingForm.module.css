@@ -36,7 +36,9 @@
   color: #101828;
 }
 .comment {
+  color: #101828;
   height: 118px;
+  resize: none;
 }
 .linkCatalog {
   display: block;
@@ -53,8 +55,13 @@
   border-radius: 30px;
   border: none;
   margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .linkCatalog:hover {
   background-color: #d84343;
   color: #ffffff;
+}
+.error {
+  color: #e44848;
+  font-size: 16px;
 }

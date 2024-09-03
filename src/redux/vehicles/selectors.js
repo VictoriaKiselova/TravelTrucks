@@ -6,3 +6,5 @@ export const selectorLoadMore = state => state.vehicles.loadMore;
 export const selectorFavorites = state => state.vehicles.favorites;
 export const selectorPage = state => state.vehicles.page;
 export const selectorLimit = state => state.vehicles.limit;
+export const selectorModalIsOpen = state => state.vehicles.modalIsOpen;
+export const selectorModalImageSrc = state => state.vehicles.modalImageSrc;

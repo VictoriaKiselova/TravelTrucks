@@ -12,11 +12,10 @@ const filtersSlice = createSlice({
     kitchen: false,
     TV: false,
     form: "",
-    loadMore: false,
   },
   reducers: {
     setFilters: (state, action) => {
-      const { loadMore, ...newFilters } = action.payload;
+      const { ...newFilters } = action.payload;
       return {
         ...state,
         ...newFilters,
@@ -28,20 +27,20 @@ const filtersSlice = createSlice({
       .addCase(fetchFilterValue.pending, (state, action) => {
         state.error = null;
         state.loading = true;
-        state.location = "";
-        state.transmission = "";
-        state.AC = false;
-        state.bathroom = false;
-        state.kitchen = false;
-        state.TV = false;
-        state.form = "";
-        state.filterItems = [];
+        // state.location = "";
+        // state.transmission = "";
+        // state.AC = false;
+        // state.bathroom = false;
+        // state.kitchen = false;
+        // state.TV = false;
+        // state.form = "";
+        // state.filterItems = [];
+        state.items = [];
       })
       .addCase(fetchFilterValue.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.items = [];
-        state.filterItems = action.payload.items;
+        state.filterItems = [...action.payload.items];
       })
       .addCase(fetchFilterValue.rejected, (state, action) => {
         state.error = action.payload;
@@ -49,5 +48,5 @@ const filtersSlice = createSlice({
       }),
 });
 
-export const { setFilters, clearFilters } = filtersSlice.actions;
+export const { setFilters } = filtersSlice.actions;
 export default filtersSlice.reducer;

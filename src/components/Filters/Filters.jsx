@@ -7,8 +7,8 @@ import {
 } from "../../redux/filters/selectors.js";
 import { fetchFilterValue } from "../../redux/filters/operations.js";
 import { useSelector, useDispatch } from "react-redux";
-import Location from "../Location/Location.jsx";
 import { selectorPage, selectorLimit } from "../../redux/vehicles/selectors";
+import Location from "../Location/Location.jsx";
 import sprite from "../../Image/Icons.svg";
 import css from "./Filters.module.css";
 
@@ -52,7 +52,9 @@ export default function Filters() {
         acc[key] = value;
         return acc;
       }, {});
-
+    if (Object.keys(filterParameters).length === 0) {
+      return;
+    }
     dispatch(fetchFilterValue({ page, limit, filterParameters }));
   };
 

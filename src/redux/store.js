@@ -22,6 +22,7 @@ const persistConfigVehiclesss = {
 const persistConfigFilters = {
   key: "filters",
   storage,
+  whitelist: [],
 };
 
 const pVehiclesReducer = persistReducer(

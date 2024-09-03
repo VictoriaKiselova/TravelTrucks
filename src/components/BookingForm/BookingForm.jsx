@@ -1,7 +1,7 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import toast, { Toaster } from "react-hot-toast";
 import { clsx } from "clsx";
 import * as Yup from "yup";
-import toast, { Toaster } from "react-hot-toast";
 import css from "./BookingForm.module.css";
 
 const BookingSchema = Yup.object().shape({
@@ -46,6 +46,7 @@ export default function BookingForm() {
             placeholder="Name*"
             className={css.inputFormBooking}
           />
+          <ErrorMessage name="name" component="div" className={css.error} />
           <Field
             type="email"
             name="email"
@@ -53,6 +54,7 @@ export default function BookingForm() {
             placeholder="Email*"
             className={css.inputFormBooking}
           />
+          <ErrorMessage name="email" component="div" className={css.error} />
           <Field
             type="date"
             name="date"
@@ -60,6 +62,7 @@ export default function BookingForm() {
             placeholder="Booking date*"
             className={css.inputFormBooking}
           />
+          <ErrorMessage name="date" component="div" className={css.error} />
           <Field
             as="textarea"
             name="comment"

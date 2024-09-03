@@ -1,10 +1,14 @@
+import ModalImage from "../../components/ModalImage/ModalImage.jsx";
 import HeadVehiclesList from "../../components/HeadVehiclesList/HeadVehiclesList.jsx";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchDetailsById } from "../../redux/vehicles/operations.js";
-import { selectorDetails } from "../../redux/vehicles/selectors.js";
+import {
+  selectorDetails,
+  selectorModalIsOpen,
+} from "../../redux/vehicles/selectors.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { openModal } from "../../redux/vehicles/slice.js";
 import css from "./DetailsPage.module.css";
 
 export default function DetailsPage() {
@@ -13,7 +17,6 @@ export default function DetailsPage() {
   const dispatch = useDispatch();
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(`${location.pathname}/features`);
-  console.log(activeLink);
 
   useEffect(() => {
     setActiveLink(location.pathname);
@@ -24,6 +27,10 @@ export default function DetailsPage() {
       dispatch(fetchDetailsById(id));
     }
   }, [dispatch, id]);
+
+  const handleImageClick = originalSrc => {
+    dispatch(openModal(originalSrc));
+  };
 
   return (
     <div className={css.detailsPageWrapper}>
@@ -39,7 +46,9 @@ export default function DetailsPage() {
                 src={item.thumb}
                 alt={`Gallery image ${index}`}
                 className={css.imgDetails}
+                onClick={() => handleImageClick(item.original)}
               />
+              {selectorModalIsOpen && <ModalImage />}
             </li>
           ))}
       </ul>
@@ -63,6 +72,7 @@ export default function DetailsPage() {
         </Link>
       </div>
       <hr className={css.line} />
+
       <Outlet />
     </div>
   );

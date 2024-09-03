@@ -2,6 +2,7 @@
   padding: 300px 20px 370px 20px;
   background-image: url("../../Image/hero-travel.jpg");
   background-repeat: no-repeat;
+  height: 296px;
 }
 .titleHero {
   font-size: 48px;
@@ -30,6 +31,7 @@
   text-decoration: none;
   background-color: #e44848;
   border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .linkCatalog:hover {
   background-color: #d84343;

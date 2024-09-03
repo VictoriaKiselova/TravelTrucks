@@ -6,12 +6,14 @@ const vehiclesSlice = createSlice({
   initialState: {
     items: [],
     details: [],
-    loadMore: true,
+    loadMore: false,
     favorites: [],
     page: 1,
     limit: 4,
     loading: false,
     error: null,
+    modalIsOpen: false,
+    modalImageSrc: null,
   },
   reducers: {
     clearItems: state => {
@@ -21,7 +23,6 @@ const vehiclesSlice = createSlice({
       const id = action.payload;
       if (!state.favorites.includes(id)) {
         state.favorites.push(id);
-        console.log(state.favorites);
       }
     },
     removeFavorite: (state, action) => {
@@ -31,10 +32,17 @@ const vehiclesSlice = createSlice({
     nextPage: state => {
       state.page = state.page + 1;
     },
+    openModal: (state, action) => {
+      state.modalIsOpen = true;
+      state.modalImageSrc = action.payload;
+    },
+    closeModal: state => {
+      state.modalIsOpen = false;
+    },
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchVehicles.pending, state => {
+      .addCase(fetchVehicles.pending, (state, action) => {
         state.error = null;
         state.loading = true;
         state.filterItems = [];
@@ -71,6 +79,12 @@ const vehiclesSlice = createSlice({
         state.loading = false;
       }),
 });
-export const { clearItems, addFavorite, removeFavorite, nextPage } =
-  vehiclesSlice.actions;
+export const {
+  clearItems,
+  addFavorite,
+  removeFavorite,
+  nextPage,
+  openModal,
+  closeModal,
+} = vehiclesSlice.actions;
 export default vehiclesSlice.reducer;

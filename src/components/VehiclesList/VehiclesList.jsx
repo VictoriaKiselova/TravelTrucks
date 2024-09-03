@@ -24,19 +24,14 @@ export default function VehiclesList() {
   const filterItems = useSelector(selectorFilterItems);
 
   useEffect(() => {
-    const fetchData = () => {
-      dispatch(fetchVehicles({ page, limit }));
-    };
-
-    fetchData();
+    dispatch(fetchVehicles({ page, limit }));
   }, [dispatch, page, limit]);
 
   const loadMorePage = () => {
     dispatch(nextPage());
   };
 
-  const listElem =
-    filterItems && filterItems.length > 0 ? filterItems : vehicles;
+  const listElem = filterItems.length > 0 ? filterItems : vehicles;
 
   return (
     <div>
