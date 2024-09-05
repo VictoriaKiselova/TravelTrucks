@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchVehicles, fetchDetailsById } from "./operations.js";
+import { fetchFilterVehicles } from "../filters/operations.js";
 
 const vehiclesSlice = createSlice({
   name: "vehicles",
@@ -45,19 +46,17 @@ const vehiclesSlice = createSlice({
       .addCase(fetchVehicles.pending, (state, action) => {
         state.error = null;
         state.loading = true;
-        state.filterItems = [];
       })
       .addCase(fetchVehicles.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.details = [];
-        const newItems = action.payload.items;
-        const existingIds = new Set(state.items.map(item => item.id));
-        const filteredNewItems = newItems.filter(
-          item => !existingIds.has(item.id)
-        );
-        state.items = [...state.items, ...filteredNewItems];
-        state.loadMore = action.payload.items.length >= 4;
+        if (state.page === 1) {
+          state.items = action.payload.items;
+        } else {
+          state.items = [...state.items, ...action.payload.items];
+        }
+        state.loadMore = action.payload.items.length >= state.limit;
       })
       .addCase(fetchVehicles.rejected, state => {
         state.error = true;
@@ -77,6 +76,19 @@ const vehiclesSlice = createSlice({
       .addCase(fetchDetailsById.rejected, state => {
         state.error = true;
         state.loading = false;
+      })
+      .addCase(fetchFilterVehicles.pending, state => {
+        state.error = null;
+        state.loading = true;
+        state.items = [];
+      })
+      .addCase(fetchFilterVehicles.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchFilterVehicles.rejected, state => {
+        state.loading = false;
+        state.error = true;
       }),
 });
 export const {

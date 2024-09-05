@@ -64,7 +64,7 @@
 }
 .linkFeatures:hover,
 .linkReviews:hover {
-  color: #e44848;
+  color: #5872f4;
 }
 .linkFeatures:active:focus,
 .linkReviews:active:focus {
@@ -79,7 +79,7 @@
   position: absolute;
   bottom: -30px;
   left: 0;
-  background-color: #e44848;
+  background-color: #5872f4;
 }
 .line {
   background-color: #dadde1;

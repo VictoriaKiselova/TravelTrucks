@@ -5,12 +5,13 @@
   color: #101828;
   margin: 0;
   transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 1px 1px #000000;
 }
 .logo:hover {
-  color: #d84343;
+  color: #5872f4;
 }
 .logo:hover .logoTrucks {
-  color: #d84343;
+  color: #5872f4;
 }
 .logoTrucks {
   color: #475467;

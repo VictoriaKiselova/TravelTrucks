@@ -70,7 +70,6 @@ export default function BookingForm() {
             placeholder="Comment"
             className={clsx(css.inputFormBooking, css.comment)}
           />
-
           <button type="submit" className={css.linkCatalog}>
             Send
           </button>

@@ -16,7 +16,7 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .navHomeLink:hover {
-  color: #d84343;
+  color: #5872f4;
 }
 @media screen and (min-width: 768px) {
   .navigation {
@@ -29,13 +29,13 @@
     background-color: #f2f4f7;
   }
   .navHomeLink {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 24px;
     color: #101828;
     text-decoration: none;
   }
   .navHomeLink:hover {
-    color: #d84343;
+    color: #5872f4;
   }
 }

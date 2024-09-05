@@ -9,7 +9,6 @@ import {
   selectorPage,
   selectorLimit,
 } from "../../redux/vehicles/selectors.js";
-import { selectorFilterItems } from "../../redux/filters/selectors.js";
 import { fetchVehicles } from "../../redux/vehicles/operations";
 import Characteristics from "../Characteristics/Characteristics.jsx";
 import HeadVehiclesList from "../HeadVehiclesList/HeadVehiclesList.jsx";
@@ -21,7 +20,6 @@ export default function VehiclesList() {
   const page = useSelector(selectorPage);
   const limit = useSelector(selectorLimit);
   const dispatch = useDispatch();
-  const filterItems = useSelector(selectorFilterItems);
 
   useEffect(() => {
     dispatch(fetchVehicles({ page, limit }));
@@ -31,14 +29,12 @@ export default function VehiclesList() {
     dispatch(nextPage());
   };
 
-  const listElem = filterItems.length > 0 ? filterItems : vehicles;
-
   return (
     <div>
-      {listElem.length === 0 ? (
+      {vehicles.length === 0 ? (
         <p>No vehicles available</p>
       ) : (
-        listElem.map(elem => (
+        vehicles.map(elem => (
           <div key={nanoid()} className={css.vehiclesItem}>
             <div>
               {elem.gallery && elem.gallery.length > 0 && (
@@ -60,7 +56,7 @@ export default function VehiclesList() {
           </div>
         ))
       )}
-      {loadMore && listElem.length > 0 && (
+      {loadMore && vehicles.length > 0 && (
         <button
           type="button"
           className={css.buttonLoadMore}

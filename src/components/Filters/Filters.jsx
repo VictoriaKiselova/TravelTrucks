@@ -5,17 +5,14 @@ import {
   selectorKitchen,
   selectorTV,
 } from "../../redux/filters/selectors.js";
-import { fetchFilterValue } from "../../redux/filters/operations.js";
+import { fetchFilterVehicles } from "../../redux/filters/operations.js";
 import { useSelector, useDispatch } from "react-redux";
-import { selectorPage, selectorLimit } from "../../redux/vehicles/selectors";
 import Location from "../Location/Location.jsx";
-import sprite from "../../Image/Icons.svg";
+import Icon from "../Icon/Icon.jsx";
 import css from "./Filters.module.css";
 
 export default function Filters() {
   const dispatch = useDispatch();
-  const page = useSelector(selectorPage);
-  const limit = useSelector(selectorLimit);
   const filters = useSelector(state => state.filters);
   const AC = useSelector(selectorAC);
   const bathroom = useSelector(selectorBathroom);
@@ -55,7 +52,7 @@ export default function Filters() {
     if (Object.keys(filterParameters).length === 0) {
       return;
     }
-    dispatch(fetchFilterValue({ page, limit, filterParameters }));
+    dispatch(fetchFilterVehicles({ filterParameters }));
   };
 
   return (
@@ -71,9 +68,7 @@ export default function Filters() {
               AC ? css.equipmentFilterItemActive : css.equipmentFilterItem
             }
             onClick={() => handleFilterChange("AC")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-wind"} />
-            </svg>
+            <Icon iconId={"icon-wind"} className={css.iconActive} />
             <p className={css.equipmentFilter}>AC</p>
           </li>
           <li
@@ -83,9 +78,7 @@ export default function Filters() {
                 : css.equipmentFilterItem
             }
             onClick={() => handleFilterChange("transmission")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-diagram"} />
-            </svg>
+            <Icon iconId={"icon-diagram"} />
             <p className={css.equipmentFilter}>Automatic</p>
           </li>
           <li
@@ -93,9 +86,7 @@ export default function Filters() {
               kitchen ? css.equipmentFilterItemActive : css.equipmentFilterItem
             }
             onClick={() => handleFilterChange("kitchen")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-cup-hot"} />
-            </svg>
+            <Icon iconId={"icon-cup-hot"} />
             <p className={css.equipmentFilter}>Kitchen</p>
           </li>
           <li
@@ -103,9 +94,7 @@ export default function Filters() {
               TV ? css.equipmentFilterItemActive : css.equipmentFilterItem
             }
             onClick={() => handleFilterChange("TV")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-tv"} />
-            </svg>
+            <Icon iconId={"icon-tv"} />
             <p className={css.equipmentFilter}>TV</p>
           </li>
           <li
@@ -113,9 +102,7 @@ export default function Filters() {
               bathroom ? css.equipmentFilterItemActive : css.equipmentFilterItem
             }
             onClick={() => handleFilterChange("bathroom")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-bi_droplet"} />
-            </svg>
+            <Icon iconId={"icon-bi_droplet"} />
             <p className={css.equipmentFilter}>Bathroom</p>
           </li>
         </ul>
@@ -130,9 +117,7 @@ export default function Filters() {
                 : css.equipmentFilterItem
             }
             onClick={() => handleTypeChange("Van")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-bi_grid-1x2"} />
-            </svg>
+            <Icon iconId={"icon-bi_grid-1x2"} />
             <p className={css.equipmentFilter}>Van</p>
           </li>
           <li
@@ -142,9 +127,7 @@ export default function Filters() {
                 : css.equipmentFilterItem
             }
             onClick={() => handleTypeChange("Fully Integrated")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-bi_grid"} />
-            </svg>
+            <Icon iconId={"icon-bi_grid"} />
             <p className={css.equipmentFilter}>Fully Integrated</p>
           </li>
           <li
@@ -154,9 +137,7 @@ export default function Filters() {
                 : css.equipmentFilterItem
             }
             onClick={() => handleTypeChange("Alcove")}>
-            <svg className={css.icon}>
-              <use href={sprite + "#icon-bi_grid-3x3-gap"} />
-            </svg>
+            <Icon iconId={"icon-bi_grid-3x3-gap"} />
             <p className={css.equipmentFilter}>Alcove</p>
           </li>
         </ul>

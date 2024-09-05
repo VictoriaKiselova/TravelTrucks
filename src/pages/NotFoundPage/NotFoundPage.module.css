@@ -1,0 +1,15 @@
+.notFoundWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.notFound {
+  font-size: 22px;
+}
+.link {
+  color: #415ef1;
+}
+.link:hover {
+  color: #5872f4;
+}

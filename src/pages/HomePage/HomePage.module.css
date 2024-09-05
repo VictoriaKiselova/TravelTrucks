@@ -29,12 +29,12 @@
   color: #ffffff;
   padding: 16px 46px;
   text-decoration: none;
-  background-color: #e44848;
+  background-color: #415ef1;
   border-radius: 30px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .linkCatalog:hover {
-  background-color: #d84343;
+  background-color: #5872f4;
   color: #ffffff;
 }
 
@@ -77,11 +77,13 @@
     color: #ffffff;
     padding: 16px 46px;
     text-decoration: none;
-    background-color: #e44848;
+    background-color: #415ef1;
     border-radius: 30px;
+    text-shadow: 2px 2px 4px #0e0e0e;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
   .linkCatalog:hover {
-    background-color: #d84343;
+    background-color: #5872f4;
     color: #ffffff;
   }
 }

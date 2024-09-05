@@ -3,24 +3,16 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
-export const fetchFilterValue = createAsyncThunk(
-  "filter/filterValue",
-  async ({ page, limit, filterParameters }, { rejectWithValue }) => {
+export const fetchFilterVehicles = createAsyncThunk(
+  "vehicles/filters",
+  async ({ filterParameters }, thunkAPI) => {
     try {
-      const { loadMore, ...cleanFilterParameters } = filterParameters;
       const response = await axios.get("/campers", {
-        params: {
-          page,
-          limit,
-          ...cleanFilterParameters,
-        },
+        params: filterParameters,
       });
-      return response.data;
+      return response.data.items;
     } catch (error) {
-      return rejectWithValue({
-        message: error.message,
-        code: error.code || "ERR_NETWORK",
-      });
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
