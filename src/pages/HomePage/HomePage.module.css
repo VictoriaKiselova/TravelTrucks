@@ -1,24 +1,27 @@
 .hero {
-  padding: 300px 20px 370px 20px;
+  padding: 250px 20px 370px 20px;
   background-image: url("../../Image/hero-travel.jpg");
   background-repeat: no-repeat;
-  height: 296px;
+  background-position: left;
+  background-size: cover;
 }
 .titleHero {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 48px;
   text-align: left;
   color: #f7f7f7;
   margin-bottom: 16px;
+  width: 281px;
 }
 .herosubTitle {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 32px;
   text-align: left;
   color: #f7f7f7;
   margin-bottom: 40px;
+  width: 281px;
 }
 .linkCatalog {
   font-size: 16px;
@@ -48,42 +51,22 @@
 
 @media screen and (min-width: 768px) {
   .hero {
-    padding: 260px 805px 260px 64px;
-    background-image: url("../../Image/hero-travel.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    padding: 260px 64px 260px 64px;
   }
   .titleHero {
     font-size: 48px;
-    font-weight: 600;
-    text-align: left;
-    color: #f7f7f7;
-    margin-bottom: 16px;
+    min-width: max-content;
   }
   .herosubTitle {
     font-size: 24px;
     font-weight: 600;
-    line-height: 32px;
-    text-align: left;
-    color: #f7f7f7;
-    margin-bottom: 40px;
   }
-  .linkCatalog {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.005em;
-    text-align: left;
-    color: #ffffff;
-    padding: 16px 46px;
-    text-decoration: none;
-    background-color: #415ef1;
-    border-radius: 30px;
-    text-shadow: 2px 2px 4px #0e0e0e;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+@media screen and (min-width: 1200px) {
+  .hero {
+    padding: 260px 805px 260px 64px;
   }
-  .linkCatalog:hover {
-    background-color: #5872f4;
-    color: #ffffff;
+  .herosubTitle {
+    min-width: max-content;
   }
 }

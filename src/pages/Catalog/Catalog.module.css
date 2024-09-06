@@ -1,7 +1,49 @@
 .catalogContainer {
-  padding: 48px 64px 52px 64px;
+  padding: 10px;
   background-color: #fff;
+}
+.toggleFiltersBtn {
   display: flex;
-  gap: 64px;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #101828;
+  text-decoration: none;
+  border: none;
+  transition: color 0.3s ease;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+.toggleFiltersBtn:hover {
+  color: #5872f4;
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  stroke: #101828;
+}
+
+@media screen and (min-width: 768px) {
+  .toggleFiltersBtn {
+    display: none;
+  }
+  .catalogContainer {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .catalogContainer {
+    padding: 48px 64px 52px 64px;
+    flex-direction: row;
+    gap: 64px;
+    align-items: flex-start;
+  }
 }

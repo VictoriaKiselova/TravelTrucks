@@ -1,5 +1,6 @@
 import ModalImage from "../../components/ModalImage/ModalImage.jsx";
 import HeadVehiclesList from "../../components/HeadVehiclesList/HeadVehiclesList.jsx";
+import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchDetailsById } from "../../redux/vehicles/operations.js";
 import {
@@ -73,7 +74,11 @@ export default function DetailsPage() {
       </div>
       <hr className={css.line} />
 
-      <Outlet />
+      <div className={css.optionDetails}>
+        <Outlet />
+        {(activeLink.includes("features") ||
+          activeLink.includes("reviews")) && <BookingForm />}
+      </div>
     </div>
   );
 }

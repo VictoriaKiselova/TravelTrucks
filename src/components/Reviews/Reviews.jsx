@@ -1,4 +1,3 @@
-import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 import { useSelector } from "react-redux";
 import { selectorDetails } from "../../redux/vehicles/selectors.js";
 import sprite from "../../Image/Icons.svg";
@@ -41,7 +40,6 @@ export default function Reviews() {
           ))}
         </ul>
       )}
-      <BookingForm />
     </div>
   );
 }

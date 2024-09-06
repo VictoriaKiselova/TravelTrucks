@@ -43,13 +43,13 @@ export default function HeadVehiclesList({ elem }) {
         )}
       </div>
       <div className={css.ratingWrapper}>
-        <svg className={css.iconStar}>
-          <use href={sprite + "#icon-star"} />
-        </svg>
         <span className={css.rating}>
+          <svg className={css.iconStar}>
+            <use href={sprite + "#icon-star"} />
+          </svg>
           {rating} ({numberOfReviews} Reviews)
         </span>
-        <span className={css.rating}>
+        <span className={css.location}>
           <svg className={css.iconLocation}>
             <use href={sprite + "#icon-Map"} />
           </svg>

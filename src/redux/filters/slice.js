@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchFilterVehicles } from "./operations";
 
 const filtersSlice = createSlice({
   name: "filters",
@@ -20,8 +19,17 @@ const filtersSlice = createSlice({
         ...newFilters,
       };
     },
+    resetFilters: state => {
+      state.location = "";
+      state.transmission = "";
+      state.AC = false;
+      state.bathroom = false;
+      state.kitchen = false;
+      state.TV = false;
+      state.form = "";
+    },
   },
 });
 
-export const { setFilters } = filtersSlice.actions;
+export const { setFilters, resetFilters } = filtersSlice.actions;
 export default filtersSlice.reducer;

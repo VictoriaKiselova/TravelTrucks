@@ -85,6 +85,7 @@ const vehiclesSlice = createSlice({
       .addCase(fetchFilterVehicles.fulfilled, (state, action) => {
         state.loading = false;
         state.items = action.payload;
+        state.loadMore = false;
       })
       .addCase(fetchFilterVehicles.rejected, state => {
         state.loading = false;

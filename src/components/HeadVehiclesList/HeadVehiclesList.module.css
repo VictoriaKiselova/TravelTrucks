@@ -1,10 +1,11 @@
 .vehiclesDescription {
-  width: 524px;
   margin-bottom: 8px;
 }
 .listItem {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
 }
 .vehiclesName {
   font-size: 24px;
@@ -13,6 +14,7 @@
   letter-spacing: 0.01em;
   text-align: left;
   color: #101828;
+  margin-bottom: 4px;
 }
 .priceBox {
   display: flex;
@@ -20,6 +22,7 @@
   align-items: center;
 }
 .vehiclesPrice {
+  display: none;
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
@@ -38,13 +41,13 @@
   fill: #e44848;
 }
 .ratingWrapper {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .iconStar {
   width: 16px;
   height: 16px;
   fill: #ffc531;
-  margin-right: 4px;
+  margin-right: 3px;
 }
 .rating {
   font-size: 16px;
@@ -53,7 +56,19 @@
   letter-spacing: 0.01em;
   text-align: left;
   color: #101828;
-  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+.location {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #101828;
+  display: flex;
+  align-items: center;
 }
 .iconLocation {
   width: 16px;
@@ -81,4 +96,30 @@
   fill: #e44848;
   border: none;
   background-color: transparent;
+}
+@media screen and (min-width: 768px) {
+  .ratingWrapper {
+    display: flex;
+    gap: 16px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .vehiclesDescription {
+    width: 524px;
+  }
+  .listItem {
+    justify-content: space-between;
+  }
+  .vehiclesPrice {
+    display: block;
+  }
+  .ratingWrapper {
+    margin-bottom: 24px;
+  }
+  .iconStar {
+    margin-right: 4px;
+  }
+  .vehiclesPriceDetails {
+    display: none;
+  }
 }

@@ -6,7 +6,7 @@
   letter-spacing: 0.01em;
   text-align: left;
   color: #101828;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .inputWrapper {
   position: relative;
@@ -20,6 +20,7 @@
   stroke: #101828;
 }
 .inputLocation {
+  width: 220px;
   padding: 16px 20px 16px 58px;
   font-size: 16px;
   font-weight: 400;
@@ -30,4 +31,14 @@
   border-radius: 12px;
   border: none;
   background-color: #f7f7f7;
+}
+@media screen and (min-width: 768px) {
+  .labelLocation {
+    order: 99;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .labelLocation {
+    margin-bottom: 40px;
+  }
 }

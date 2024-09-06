@@ -5,7 +5,8 @@
   position: absolute;
   display: block;
   background-color: transparent;
-  left: 101%;
+  top: 1%;
+  left: 92%;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -14,10 +15,33 @@
   width: 26px;
   height: 26px;
   fill: #fff;
+  stroke: black;
+  stroke-width: 0.5;
 }
 .closeIcon:hover {
-  fill: #000000;
+  fill: #5872f4;
 }
 .imgDetailsOrigin {
+  width: 318px !important;
+  height: 280px;
+  object-fit: cover;
   display: block;
+}
+@media screen and (min-width: 768px) {
+  .buttonCloseModal {
+    top: -3%;
+    left: 100%;
+  }
+  .closeIcon {
+    stroke: none;
+  }
+  .imgDetailsOrigin {
+    width: 690px !important;
+    height: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .imgDetailsOrigin {
+    width: max-content !important;
+  }
 }

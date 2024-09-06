@@ -2,10 +2,11 @@
   margin-bottom: 40px;
 }
 .vehiclesItem {
-  padding: 24px;
+  width: 300px;
+  padding: 10px;
   display: flex;
-  gap: 24px;
-  list-style-type: none;
+  flex-direction: column;
+  gap: 10px;
   background-color: #ffffff;
   border: 1px solid #dadde1;
   border-radius: 15px;
@@ -14,8 +15,8 @@
   margin-bottom: 32px;
 }
 .imageVehicles {
-  width: 300px;
-  height: 320px;
+  width: 280px;
+  height: 200px;
   border-radius: 10px;
   object-fit: cover;
   display: block;
@@ -37,6 +38,7 @@
   margin-bottom: 24px;
 }
 .linkCatalog {
+  display: inline-block;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -69,4 +71,28 @@
 }
 .buttonLoadMore:hover {
   border: 1px solid #5872f4;
+}
+@media screen and (min-width: 768px) {
+  .vehiclesItem {
+    width: 736px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .imageVehicles {
+    width: 320px;
+    height: 292px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .vehiclesItem {
+    width: 888px;
+    padding: 24px;
+    gap: 24px;
+    list-style-type: none;
+  }
+  .imageVehicles {
+    width: 292px;
+    height: 320px;
+  }
 }

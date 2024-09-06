@@ -11,7 +11,7 @@ import Location from "../Location/Location.jsx";
 import Icon from "../Icon/Icon.jsx";
 import css from "./Filters.module.css";
 
-export default function Filters() {
+export default function Filters({ setShowFilters }) {
   const dispatch = useDispatch();
   const filters = useSelector(state => state.filters);
   const AC = useSelector(selectorAC);
@@ -53,94 +53,102 @@ export default function Filters() {
       return;
     }
     dispatch(fetchFilterVehicles({ filterParameters }));
+    setShowFilters(false);
   };
 
   return (
-    <div>
+    <div className={css.filterWrapper}>
       <Location />
-      <p className={css.filters}>Filters</p>
       <div className={css.filterContainer}>
-        <h3 className={css.titleEquipment}>Vehicle equipment</h3>
-        <hr className={css.line} />
-        <ul className={css.equipmentList}>
-          <li
-            className={
-              AC ? css.equipmentFilterItemActive : css.equipmentFilterItem
-            }
-            onClick={() => handleFilterChange("AC")}>
-            <Icon iconId={"icon-wind"} className={css.iconActive} />
-            <p className={css.equipmentFilter}>AC</p>
-          </li>
-          <li
-            className={
-              filters.transmission === "Automatic"
-                ? css.equipmentFilterItemActive
-                : css.equipmentFilterItem
-            }
-            onClick={() => handleFilterChange("transmission")}>
-            <Icon iconId={"icon-diagram"} />
-            <p className={css.equipmentFilter}>Automatic</p>
-          </li>
-          <li
-            className={
-              kitchen ? css.equipmentFilterItemActive : css.equipmentFilterItem
-            }
-            onClick={() => handleFilterChange("kitchen")}>
-            <Icon iconId={"icon-cup-hot"} />
-            <p className={css.equipmentFilter}>Kitchen</p>
-          </li>
-          <li
-            className={
-              TV ? css.equipmentFilterItemActive : css.equipmentFilterItem
-            }
-            onClick={() => handleFilterChange("TV")}>
-            <Icon iconId={"icon-tv"} />
-            <p className={css.equipmentFilter}>TV</p>
-          </li>
-          <li
-            className={
-              bathroom ? css.equipmentFilterItemActive : css.equipmentFilterItem
-            }
-            onClick={() => handleFilterChange("bathroom")}>
-            <Icon iconId={"icon-bi_droplet"} />
-            <p className={css.equipmentFilter}>Bathroom</p>
-          </li>
-        </ul>
+        <div className={css.equipmentContainer}>
+          <h3 className={css.titleEquipment}>Vehicle equipment</h3>
+          <hr className={css.line} />
+          <ul className={css.equipmentList}>
+            <li
+              className={
+                AC ? css.equipmentFilterItemActive : css.equipmentFilterItem
+              }
+              onClick={() => handleFilterChange("AC")}>
+              <Icon iconId={"icon-wind"} className={css.iconActive} />
+              <p className={css.equipmentFilter}>AC</p>
+            </li>
+            <li
+              className={
+                filters.transmission === "Automatic"
+                  ? css.equipmentFilterItemActive
+                  : css.equipmentFilterItem
+              }
+              onClick={() => handleFilterChange("transmission")}>
+              <Icon iconId={"icon-diagram"} />
+              <p className={css.equipmentFilter}>Automatic</p>
+            </li>
+            <li
+              className={
+                kitchen
+                  ? css.equipmentFilterItemActive
+                  : css.equipmentFilterItem
+              }
+              onClick={() => handleFilterChange("kitchen")}>
+              <Icon iconId={"icon-cup-hot"} />
+              <p className={css.equipmentFilter}>Kitchen</p>
+            </li>
+            <li
+              className={
+                TV ? css.equipmentFilterItemActive : css.equipmentFilterItem
+              }
+              onClick={() => handleFilterChange("TV")}>
+              <Icon iconId={"icon-tv"} />
+              <p className={css.equipmentFilter}>TV</p>
+            </li>
+            <li
+              className={
+                bathroom
+                  ? css.equipmentFilterItemActive
+                  : css.equipmentFilterItem
+              }
+              onClick={() => handleFilterChange("bathroom")}>
+              <Icon iconId={"icon-bi_droplet"} />
+              <p className={css.equipmentFilter}>Bathroom</p>
+            </li>
+          </ul>
+        </div>
 
-        <h3 className={css.titleEquipment}>Vehicle type</h3>
-        <hr className={css.line} />
-        <ul className={css.equipmentList}>
-          <li
-            className={
-              filters.form === "Van"
-                ? css.equipmentFilterItemActive
-                : css.equipmentFilterItem
-            }
-            onClick={() => handleTypeChange("Van")}>
-            <Icon iconId={"icon-bi_grid-1x2"} />
-            <p className={css.equipmentFilter}>Van</p>
-          </li>
-          <li
-            className={
-              filters.form === "Fully Integrated"
-                ? css.equipmentFilterItemActive
-                : css.equipmentFilterItem
-            }
-            onClick={() => handleTypeChange("Fully Integrated")}>
-            <Icon iconId={"icon-bi_grid"} />
-            <p className={css.equipmentFilter}>Fully Integrated</p>
-          </li>
-          <li
-            className={
-              filters.form === "Alcove"
-                ? css.equipmentFilterItemActive
-                : css.equipmentFilterItem
-            }
-            onClick={() => handleTypeChange("Alcove")}>
-            <Icon iconId={"icon-bi_grid-3x3-gap"} />
-            <p className={css.equipmentFilter}>Alcove</p>
-          </li>
-        </ul>
+        <div>
+          <h3 className={css.titleEquipment}>Vehicle type</h3>
+          <hr className={css.line} />
+          <ul className={css.equipmentList}>
+            <li
+              className={
+                filters.form === "Van"
+                  ? css.equipmentFilterItemActive
+                  : css.equipmentFilterItem
+              }
+              onClick={() => handleTypeChange("Van")}>
+              <Icon iconId={"icon-bi_grid-1x2"} />
+              <p className={css.equipmentFilter}>Van</p>
+            </li>
+            <li
+              className={
+                filters.form === "Fully Integrated"
+                  ? css.equipmentFilterItemActive
+                  : css.equipmentFilterItem
+              }
+              onClick={() => handleTypeChange("Fully Integrated")}>
+              <Icon iconId={"icon-bi_grid"} />
+              <p className={css.equipmentFilter}>Fully Integrated</p>
+            </li>
+            <li
+              className={
+                filters.form === "Alcove"
+                  ? css.equipmentFilterItemActive
+                  : css.equipmentFilterItem
+              }
+              onClick={() => handleTypeChange("Alcove")}>
+              <Icon iconId={"icon-bi_grid-3x3-gap"} />
+              <p className={css.equipmentFilter}>Alcove</p>
+            </li>
+          </ul>
+        </div>
       </div>
       <button className={css.linkCatalog} type="submit" onClick={handleRequest}>
         Search

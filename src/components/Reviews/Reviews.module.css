@@ -1,17 +1,15 @@
 .reviewsWrapper {
   background-color: #fff;
-  display: flex;
-  padding: 44px 64px;
-  gap: 40px;
+  padding: 10px;
 }
 .reviewsList {
-  width: 631px;
+  width: 280px;
 }
 .reviewItem {
   list-style-type: none;
 }
 .reviewItem:not(:last-child) {
-  margin-bottom: 44px;
+  margin-bottom: 24px;
 }
 .reviewFirstLetter {
   width: 60px;
@@ -52,4 +50,23 @@
   height: 16px;
   margin-right: 4px;
   fill: #ffc531;
+}
+@media screen and (min-width: 768px) {
+  .reviewsWrapper {
+    padding: 20px;
+  }
+  .reviewsList {
+    width: 631px;
+  }
+  .reviewItem:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .reviewsWrapper {
+    padding: 44px 64px;
+  }
+  .reviewItem:not(:last-child) {
+    margin-bottom: 44px;
+  }
 }

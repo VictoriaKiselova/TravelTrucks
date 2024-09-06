@@ -10,6 +10,7 @@ import {
   selectorLimit,
 } from "../../redux/vehicles/selectors.js";
 import { fetchVehicles } from "../../redux/vehicles/operations";
+import { resetFilters } from "../../redux/filters/slice.js";
 import Characteristics from "../Characteristics/Characteristics.jsx";
 import HeadVehiclesList from "../HeadVehiclesList/HeadVehiclesList.jsx";
 import css from "./VehiclesList.module.css";
@@ -23,6 +24,7 @@ export default function VehiclesList() {
 
   useEffect(() => {
     dispatch(fetchVehicles({ page, limit }));
+    dispatch(resetFilters());
   }, [dispatch, page, limit]);
 
   const loadMorePage = () => {
@@ -56,6 +58,7 @@ export default function VehiclesList() {
           </div>
         ))
       )}
+
       {loadMore && vehicles.length > 0 && (
         <button
           type="button"
