@@ -29,6 +29,7 @@
   gap: 14px;
 }
 .inputFormBooking {
+  width: 247px;
   padding: 18px;
   background-color: #f7f7f7;
   border: none;
@@ -70,6 +71,9 @@
   .bookingForm {
     width: 641px;
     padding: 20px;
+  }
+  .inputFormBooking {
+    width: 601px;
   }
 }
 @media screen and (min-width: 1200px) {

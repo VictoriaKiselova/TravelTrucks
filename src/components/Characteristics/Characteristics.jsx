@@ -3,20 +3,6 @@ import { RiRadioLine } from "react-icons/ri";
 import { FaHandHoldingWater } from "react-icons/fa";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { LuMicrowave } from "react-icons/lu";
-// import {
-//   selectorTransmission,
-//   selectorEngine,
-//   selectorAC,
-//   selectorBathroom,
-//   selectorKitchen,
-//   selectorTV,
-//   selectorRadio,
-//   selectorRefrigerator,
-//   selectorMicrowave,
-//   selectorGas,
-//   selectorWater,
-// } from "../../redux/vehicles/selectors.js";
-import { useSelector } from "react-redux";
 import css from "./Characteristics.module.css";
 
 export default function Characteristics({ elem }) {
