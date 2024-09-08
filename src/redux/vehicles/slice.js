@@ -6,7 +6,7 @@ const vehiclesSlice = createSlice({
   name: "vehicles",
   initialState: {
     items: [],
-    details: [],
+    details: null,
     loadMore: false,
     favorites: [],
     page: 1,
@@ -50,7 +50,7 @@ const vehiclesSlice = createSlice({
       .addCase(fetchVehicles.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.details = [];
+        state.details = null;
         if (state.page === 1) {
           state.items = action.payload.items;
         } else {

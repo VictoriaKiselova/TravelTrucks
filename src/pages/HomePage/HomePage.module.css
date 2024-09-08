@@ -1,8 +1,8 @@
 .hero {
-  padding: 250px 20px 370px 20px;
+  padding: 250px 20px 270px 20px;
   background-image: url("../../Image/hero-travel.jpg");
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: left 10%;
   background-size: cover;
 }
 .titleHero {
@@ -30,7 +30,7 @@
   letter-spacing: -0.005em;
   text-align: left;
   color: #ffffff;
-  padding: 16px 46px;
+  padding: 8px 24px;
   text-decoration: none;
   background-color: #415ef1;
   border-radius: 30px;
@@ -64,9 +64,12 @@
 }
 @media screen and (min-width: 1200px) {
   .hero {
-    padding: 260px 805px 260px 64px;
+    padding: 260px 64px 260px 64px;
   }
   .herosubTitle {
     min-width: max-content;
+  }
+  .linkCatalog {
+    padding: 16px 46px;
   }
 }

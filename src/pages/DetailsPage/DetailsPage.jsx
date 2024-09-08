@@ -17,6 +17,7 @@ export default function DetailsPage() {
   const details = useSelector(selectorDetails);
   const dispatch = useDispatch();
   const location = useLocation();
+  const modalIsOpen = useSelector(selectorModalIsOpen);
   const [activeLink, setActiveLink] = useState(`${location.pathname}/features`);
 
   useEffect(() => {
@@ -35,50 +36,54 @@ export default function DetailsPage() {
 
   return (
     <div className={css.detailsPageWrapper}>
-      <div className={css.wrapper}>
-        <HeadVehiclesList elem={details} />
-      </div>
-      <ul className={css.imageContainer}>
-        {details.gallery &&
-          details.gallery.length > 0 &&
-          details.gallery.map((item, index) => (
-            <li key={index} className={css.detailsImageItem}>
-              <img
-                src={item.thumb}
-                alt={`Gallery image ${index}`}
-                className={css.imgDetails}
-                onClick={() => handleImageClick(item.original)}
-              />
-              {selectorModalIsOpen && <ModalImage />}
-            </li>
-          ))}
-      </ul>
-      <p className={css.detailsDeskr}>{details.description}</p>
-      <div className={css.detailsLinks}>
-        <Link
-          to="features"
-          className={`${css.linkFeatures} ${
-            activeLink.includes("features") ? css.active : ""
-          }`}
-          onClick={() => setActiveLink(`${location.pathname}/features`)}>
-          Features
-        </Link>
-        <Link
-          to="reviews"
-          className={`${css.linkReviews} ${
-            activeLink.includes("reviews") ? css.active : ""
-          }`}
-          onClick={() => setActiveLink(`${location.pathname}/reviews`)}>
-          Reviews
-        </Link>
-      </div>
-      <hr className={css.line} />
+      {details && (
+        <>
+          <div className={css.wrapper}>
+            <HeadVehiclesList elem={details} />
+          </div>
+          <ul className={css.imageContainer}>
+            {details.gallery &&
+              details.gallery.length > 0 &&
+              details.gallery.map((item, index) => (
+                <li key={index} className={css.detailsImageItem}>
+                  <img
+                    src={item.thumb}
+                    alt={`Gallery image ${index}`}
+                    className={css.imgDetails}
+                    onClick={() => handleImageClick(item.original)}
+                  />
+                  {modalIsOpen && <ModalImage />}
+                </li>
+              ))}
+          </ul>
+          <p className={css.detailsDeskr}>{details.description}</p>
+          <div className={css.detailsLinks}>
+            <Link
+              to="features"
+              className={`${css.linkFeatures} ${
+                activeLink.includes("features") ? css.active : ""
+              }`}
+              onClick={() => setActiveLink(`${location.pathname}/features`)}>
+              Features
+            </Link>
+            <Link
+              to="reviews"
+              className={`${css.linkReviews} ${
+                activeLink.includes("reviews") ? css.active : ""
+              }`}
+              onClick={() => setActiveLink(`${location.pathname}/reviews`)}>
+              Reviews
+            </Link>
+          </div>
+          <hr className={css.line} />
 
-      <div className={css.optionDetails}>
-        <Outlet />
-        {(activeLink.includes("features") ||
-          activeLink.includes("reviews")) && <BookingForm />}
-      </div>
+          <div className={css.optionDetails}>
+            <Outlet />
+            {(activeLink.includes("features") ||
+              activeLink.includes("reviews")) && <BookingForm />}
+          </div>
+        </>
+      )}
     </div>
   );
 }

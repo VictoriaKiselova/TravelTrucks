@@ -1,5 +1,5 @@
 .features {
-  width: 280px;
+  width: 288px;
   padding: 16px;
   background-color: #f7f7f7;
   border-radius: 10px;
@@ -9,14 +9,13 @@
 }
 @media screen and (min-width: 768px) {
   .features {
-    width: 631px;
+    width: 580px;
     padding: 20px;
     gap: 30px;
   }
 }
 @media screen and (min-width: 1200px) {
   .features {
-    padding: 44px 52px;
-    gap: 100px;
+    padding: 20px 30px;
   }
 }

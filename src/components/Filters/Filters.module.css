@@ -75,7 +75,7 @@
   letter-spacing: -0.005em;
   text-align: left;
   color: #ffffff;
-  padding: 16px 46px;
+  padding: 8px 23px;
   text-decoration: none;
   background-color: #415ef1;
   border-radius: 30px;
@@ -89,6 +89,7 @@
 }
 @media screen and (min-width: 768px) {
   .filterWrapper {
+    padding: 0 30px;
     position: relative;
     margin-bottom: 0;
   }
@@ -99,7 +100,7 @@
   .equipmentContainer {
     position: absolute;
     top: 0;
-    left: 360px;
+    left: 403px;
     order: 1;
     margin-bottom: 0;
   }
@@ -109,24 +110,23 @@
     flex-direction: column;
     gap: 32px;
     width: max-content;
-  }
-  .filterContainer {
     margin-bottom: 40px;
   }
+  .filterWrapper {
+    padding: 0;
+  }
   .line {
-    width: 360px;
-  }
-  .equipmentFilterItem {
-    width: 112px;
-  }
-  .equipmentFilterItemActive {
-    width: 112px;
+    width: 100%;
   }
   .equipmentList {
-    width: 360px;
+    width: 306px;
   }
   .equipmentContainer {
     position: relative;
     left: 0;
+    width: max-content;
+  }
+  .linkCatalog {
+    padding: 16px 46px;
   }
 }
