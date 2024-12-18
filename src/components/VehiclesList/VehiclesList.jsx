@@ -8,6 +8,7 @@ import {
   selectorLoadMore,
   selectorPage,
   selectorLimit,
+  selectorLoading,
 } from "../../redux/vehicles/selectors.js";
 import { fetchVehicles } from "../../redux/vehicles/operations";
 import { resetFilters } from "../../redux/filters/slice.js";
@@ -21,6 +22,7 @@ export default function VehiclesList() {
   const page = useSelector(selectorPage);
   const limit = useSelector(selectorLimit);
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectorLoading);
 
   useEffect(() => {
     dispatch(fetchVehicles({ page, limit }));
@@ -33,7 +35,7 @@ export default function VehiclesList() {
 
   return (
     <div>
-      {vehicles.length === 0 ? (
+      {vehicles.length === 0 && !isLoading ? (
         <p>No vehicles available</p>
       ) : (
         vehicles.map(elem => (

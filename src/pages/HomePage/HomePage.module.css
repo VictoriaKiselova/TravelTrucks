@@ -1,6 +1,6 @@
 .hero {
   padding: 250px 20px 270px 20px;
-  background-image: url("../../Image/hero-travel.jpg");
+  background-image: url("../../Image/Picture.png");
   background-repeat: no-repeat;
   background-position: left 10%;
   background-size: cover;
@@ -24,17 +24,19 @@
   width: 281px;
 }
 .linkCatalog {
+  display: block;
+  width: 180px;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.005em;
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   padding: 8px 24px;
   text-decoration: none;
   background-color: #415ef1;
   border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .linkCatalog:hover {
   background-color: #5872f4;
@@ -51,6 +53,7 @@
 
 @media screen and (min-width: 768px) {
   .hero {
+    background-image: url("../../Image/Picture.png");
     padding: 260px 64px 260px 64px;
   }
   .titleHero {
@@ -60,16 +63,20 @@
   .herosubTitle {
     font-size: 24px;
     font-weight: 600;
+    min-width: max-content;
   }
 }
 @media screen and (min-width: 1200px) {
   .hero {
-    padding: 260px 64px 260px 64px;
+    background-image: url("../../Image/Picture.png");
+    padding: 350px 64px 350px 64px;
   }
   .herosubTitle {
-    min-width: max-content;
+    width: 530px;
   }
   .linkCatalog {
+    width: 173px;
     padding: 16px 46px;
+    font-size: 20px;
   }
 }
